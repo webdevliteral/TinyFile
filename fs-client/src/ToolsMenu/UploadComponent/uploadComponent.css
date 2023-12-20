@@ -1,0 +1,30 @@
+.upload-wrapper {
+    padding: 10px;
+    height: 100%;
+}
+
+.upload-wrapper form {
+    padding: 5px;
+}
+
+.upload-wrapper label {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.upload-wrapper progress {
+    border-radius: 2px; 
+    width: 100%;
+    height: 22px;
+    box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+  }
+  progress::-webkit-progress-bar {
+    background-color: rgb(226, 226, 226);
+    border-radius: 3px;
+    box-shadow: inset 0 0 3px #616161;
+  }
+  progress::-webkit-progress-value {
+    background-color: #349beb;
+    border-radius: 3px;
+  }

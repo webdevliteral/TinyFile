@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.viewport-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  all: unset;
+  background-color: #349beb;
+  display: block;
+  box-sizing: border-box;
+  margin: 5px auto;
+  color: white;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+.button {
+  all: unset;
+  background-color: #349beb;
+  display: block;
+  box-sizing: border-box;
+  margin: 5px auto;
+  color: white;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+}

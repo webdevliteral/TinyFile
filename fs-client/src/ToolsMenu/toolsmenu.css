@@ -1,0 +1,18 @@
+.tool-container {
+    border-right: 1px solid gray;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: white;
+    width: 300px;
+    -webkit-box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75);
+z-index: 2;
+}
+
+.tool-container h2 {
+    text-align: center;
+    padding: 1em;
+}

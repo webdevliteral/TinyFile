@@ -58,7 +58,7 @@ function DirectoryManager(props: Props) {
   //Uses: Whenever a directory needs to be deleted.
   const handleDeleteDirectory = async (directory: string) => {
     await axios
-      .post("http://192.168.1.20:3001/directory/delete/", {
+      .post("http://localhost:3001/directory/delete/", {
         path: directory,
       })
       .then((res) => {
@@ -94,7 +94,7 @@ function DirectoryManager(props: Props) {
   const NavigateToDirectory = (directoryPath: string) => {
     if (props.currentDirectory === directoryPath) return;
     axios
-      .post("http://192.168.1.20:3001/directory/navigate", {
+      .post("http://localhost:3001/directory/navigate", {
         path: directoryPath,
       })
       .then((res) => {

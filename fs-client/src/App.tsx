@@ -20,7 +20,7 @@ function App() {
 
     //make a post request and send the directory to retrieve a file list from
     await axios
-      .post("http://192.168.1.20:3001/files/list", {
+      .post("http://localhost:3001/files/list", {
         path: directoryPath,
       })
       .then((res) => {
@@ -41,7 +41,7 @@ function App() {
 
     //make a post request and send the directory to retrieve a file list from
     await axios
-      .post("http://192.168.1.20:3001/directory/navigate", {
+      .post("http://localhost:3001/directory/navigate", {
         path: directoryPath,
       })
       .then((res) => {

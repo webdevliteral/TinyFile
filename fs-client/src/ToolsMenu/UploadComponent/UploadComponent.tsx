@@ -52,7 +52,7 @@ function UploadComponent(props: Props) {
 
     //send our file data to the server in the FormData we just configured
     axios
-      .post("http://192.168.1.20:3001/upload/", formData, postConfig)
+      .post("http://localhost:3001/upload/", formData, postConfig)
       .then((res) => {
         props.GetFileList(props.currentDirectory).then((data: any) => {
           if (data.length === 0) props.setFileList(undefined);

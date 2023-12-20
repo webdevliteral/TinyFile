@@ -67,7 +67,7 @@ function FileManager(props: Props) {
   //Uses: Whenever a file needs to be deleted.
   const handleDeleteFile = async (filename: string) => {
     await axios
-      .post("http://192.168.1.20:3001/file/delete/", {
+      .post("http://localhost:3001/file/delete/", {
         path: props.currentDirectory,
         filename: filename,
       })
@@ -108,7 +108,7 @@ function FileManager(props: Props) {
   const handleDownload = async (filename: string) => {
     await axios
       .post(
-        "http://192.168.1.20:3001/file/download/",
+        "http://localhost:3001/file/download/",
         {
           path: props.currentDirectory,
           filename: filename,
@@ -150,7 +150,7 @@ function FileManager(props: Props) {
   //Uses: Whenever a file needs to be renamed
   const handleEditFilename = async () => {
     await axios
-      .post("http://192.168.1.20:3001/file/edit/", {
+      .post("http://localhost:3001/file/edit/", {
         filepath: props.currentDirectory,
         oldName: oldFilename,
         newName: newFilename,

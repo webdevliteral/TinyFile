@@ -53,7 +53,7 @@ function DirectoryComponent(props: Props) {
       });
     }
     axios
-      .post("http://192.168.1.20:3001/directory/new/" + directoryName, {
+      .post("http://localhost:3001/directory/new/" + directoryName, {
         path: props.currentDirectory,
       })
       .then((res) => {

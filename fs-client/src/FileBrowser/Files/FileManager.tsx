@@ -4,6 +4,7 @@ import { AnimatePresence, motion as m } from "framer-motion";
 import { useState } from "react";
 import Modal from "../../Modal/Modal";
 import { Colors } from "../../Alerts/BasicAlert";
+import { server_hostname, server_port } from "../../App";
 
 //use an interface to define what props (state) we're expecting to be passed to the tools menu
 interface Props {
@@ -67,7 +68,7 @@ function FileManager(props: Props) {
   //Uses: Whenever a file needs to be deleted.
   const handleDeleteFile = async (filename: string) => {
     await axios
-      .post("http://localhost:3001/file/delete/", {
+      .post(`${server_hostname}:${server_port}/file/delete/`, {
         path: props.currentDirectory,
         filename: filename,
       })
@@ -108,7 +109,7 @@ function FileManager(props: Props) {
   const handleDownload = async (filename: string) => {
     await axios
       .post(
-        "http://localhost:3001/file/download/",
+        `${server_hostname}:${server_port}/file/download/`,
         {
           path: props.currentDirectory,
           filename: filename,
@@ -150,7 +151,7 @@ function FileManager(props: Props) {
   //Uses: Whenever a file needs to be renamed
   const handleEditFilename = async () => {
     await axios
-      .post("http://localhost:3001/file/edit/", {
+      .post(`${server_hostname}:${server_port}/file/edit/`, {
         filepath: props.currentDirectory,
         oldName: oldFilename,
         newName: newFilename,

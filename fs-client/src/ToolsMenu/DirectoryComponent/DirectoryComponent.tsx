@@ -3,6 +3,7 @@ import Modal from "../../Modal/Modal";
 import { useState } from "react";
 import axios from "axios";
 import BasicAlert, { Colors } from "../../Alerts/BasicAlert";
+import { server_hostname, server_port } from "../../App";
 
 //use an interface to define what props (state) we're expecting to be passed to the tools menu
 interface Props {
@@ -53,9 +54,12 @@ function DirectoryComponent(props: Props) {
       });
     }
     axios
-      .post("http://localhost:3001/directory/new/" + directoryName, {
-        path: props.currentDirectory,
-      })
+      .post(
+        `${server_hostname}:${server_port}/directory/new/` + directoryName,
+        {
+          path: props.currentDirectory,
+        }
+      )
       .then((res) => {
         switch (res.data.status) {
           case 200: {

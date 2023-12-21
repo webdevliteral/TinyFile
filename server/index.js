@@ -3,9 +3,10 @@ import express from 'express'
 import cors from 'cors'
 import fileUpload from 'express-fileupload'
 import path from 'path'
+import 'dotenv/config'
 
 //Environment Variables
-const ENV_PORT = 3001
+const ENV_PORT = process.env.PORT
 
 //File Directories
 const rootDir = './public/files/'
@@ -44,7 +45,7 @@ async function SendFileList(req, res, filePath = rootDir) {
     fs.readdir(fullPath, async (err, files) => {
         //if the amount of files in a directory is 0 then send a 200 status with a condition alerting the client that there are no files, but not due to error.
         if(err && err.code === 'ENOENT') return res.json({status: 400, condition: "NO_DIR", alert: "That directory does not exist."})  
-        if(files.length === 0) return res.json({status: 400, condition: "NO_FILE", alert: "There are no files in your drive."})
+        if(files.length === 0) return res.json({status: 200, condition: "NO_FILE", alert: "There are no files in this directory."})
 
         //init empty list of all active files
         const fileInfoArray = [];
@@ -256,7 +257,7 @@ app.post('/file/download/', (req, res) => {
 app.post('/file/delete', async (req, res) => {
     //set the desired filepath
     const filePath = (req.body.path === "root") ? `${rootDir}${req.body.filename}` : `${req.body.path}/${req.body.filename}`;
-
+    console.log(filePath)
     //Node's fs.exists is deprecated, so we check the stats of the file to see if anything returns
     try {
         await fs.promises.access(filePath, fs.constants.R_OK)

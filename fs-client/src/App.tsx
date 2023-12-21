@@ -6,6 +6,9 @@ import axios from "axios";
 import "./App.css";
 import BasicAlert from "./Alerts/BasicAlert";
 
+export const server_hostname = "http://localhost";
+export const server_port = 3001;
+
 function App() {
   //global states go here
   const [fileList, setFileList] = useState<Array<any>>();
@@ -20,7 +23,7 @@ function App() {
 
     //make a post request and send the directory to retrieve a file list from
     await axios
-      .post("http://localhost:3001/files/list", {
+      .post(`${server_hostname}:${server_port}/files/list`, {
         path: directoryPath,
       })
       .then((res) => {
@@ -41,7 +44,7 @@ function App() {
 
     //make a post request and send the directory to retrieve a file list from
     await axios
-      .post("http://localhost:3001/directory/navigate", {
+      .post(`${server_hostname}:${server_port}/directory/navigate`, {
         path: directoryPath,
       })
       .then((res) => {

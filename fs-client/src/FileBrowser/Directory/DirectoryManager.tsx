@@ -2,6 +2,7 @@ import axios from "axios";
 import "../fileBrowser.css";
 import { motion as m } from "framer-motion";
 import { Colors } from "../../Alerts/BasicAlert";
+import { server_hostname, server_port } from "../../App";
 
 //use an interface to define what props (state) we're expecting to be passed to the tools menu
 interface Props {
@@ -58,7 +59,7 @@ function DirectoryManager(props: Props) {
   //Uses: Whenever a directory needs to be deleted.
   const handleDeleteDirectory = async (directory: string) => {
     await axios
-      .post("http://localhost:3001/directory/delete/", {
+      .post(`${server_hostname}:${server_port}/directory/delete/`, {
         path: directory,
       })
       .then((res) => {
@@ -94,7 +95,7 @@ function DirectoryManager(props: Props) {
   const NavigateToDirectory = (directoryPath: string) => {
     if (props.currentDirectory === directoryPath) return;
     axios
-      .post("http://localhost:3001/directory/navigate", {
+      .post(`${server_hostname}:${server_port}/directory/navigate`, {
         path: directoryPath,
       })
       .then((res) => {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "./uploadComponent.css";
+import { server_hostname, server_port } from "../../App";
 
 interface Props {
   GetFileList: Function;
@@ -52,7 +53,7 @@ function UploadComponent(props: Props) {
 
     //send our file data to the server in the FormData we just configured
     axios
-      .post("http://localhost:3001/upload/", formData, postConfig)
+      .post(`${server_hostname}:${server_port}/upload/`, formData, postConfig)
       .then((res) => {
         props.GetFileList(props.currentDirectory).then((data: any) => {
           if (data.length === 0) props.setFileList(undefined);
